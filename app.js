@@ -5,7 +5,7 @@ const swaggerUi = require("swagger-ui-express");
 const stockRoutes = require("./routes/stocks");
 const bodyParser = require("body-parser");
 const mySqlConnection = require("./helpers/mysql-connection");
-const port =  process.env.PORT || 8081;
+const port = process.env.PORT || 8081;
 const path = require("path");
 const amqp = require("amqplib");
 const cors = require("cors");
@@ -33,7 +33,7 @@ const swaggerOptions = {
 };
 
 async function connect() {
-  const amqpServer = "amqp://host.docker.internal:5672";
+  const amqpServer = "amqp://localhost:5672";
   connection = await amqp.connect(amqpServer);
   channel = await connection.createChannel();
   await channel.assertQueue("STOCK");
