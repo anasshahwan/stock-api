@@ -1,0 +1,20 @@
+const mysql = require("mysql2");
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, ".././.env") });
+
+var mySqlConnection = mysql.createConnection({
+  port: "3306",
+  user: process.env.AWS_MYSQL_USER,
+  password: process.env.AWS_MYSQL_PASS,
+  host: process.env.AWS_MYSQL_HOST,
+  database: process.env.AWS_MYSQL_DB_NAME,
+});
+mySqlConnection.connect((err) => {
+  if (err) {
+    console.log(err.message);
+    return;
+  }
+  console.log("Databse was connected Successfully");
+});
+
+module.exports = mySqlConnection;
