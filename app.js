@@ -9,7 +9,8 @@ const port =  process.env.PORT || 8081;
 const path = require("path");
 const amqp = require("amqplib");
 const cors = require("cors");
-require("dotenv").config({ path: path.resolve(__dirname, "./.env") });
+// require("dotenv").config({ path: path.resolve(__dirname, "./.env") });
+require("dotenv").config();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
