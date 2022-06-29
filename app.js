@@ -33,7 +33,7 @@ const swaggerOptions = {
 };
 
 async function connect() {
-  const amqpServer = "amqp://localhost:5672";
+  const amqpServer = "amqps://admin:Anas.1122334455@b-063ba49f-0e6e-4f49-9808-5aaa12cb6302.mq.us-east-2.amazonaws.com:5671";
   connection = await amqp.connect(amqpServer);
   channel = await connection.createChannel();
   await channel.assertQueue("STOCK");
